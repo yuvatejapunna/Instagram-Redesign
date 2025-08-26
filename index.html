@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Instagram Clone</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto";
+      }
+      .left {
+        height: 100dvh;
+        width: 15dvw;
+        background-color: #000000;
+        background-size: cover;
+        position: fixed;
+        top: 0;
+        font-size: 16px;
+        left: 0;
+        padding: 10px;
+        color: white;
+      }
+      .left i {
+        font-size: 25px;
+      }
+      .Instanamee {
+        width: 60%;
+        padding: -10px;
+        margin: -10px;
+      }
+      .insta {
+        padding: 30px;
+      }
+      .profilee {
+        width: 50%;
+        border-radius: 50px;
+        margin: -10px;
+        padding: 0px;
+      }
+      .left tr:hover {
+        background-color: #0f0f0f;
+      }
+      .main {
+        height: 100%;
+        width: 85%;
+        background-color: #000000;
+        background-size: cover;
+        scrollbar-width: none;
+        float: right;
+        overflow: scroll;
+      }
+      .mainleft {
+        height: 100%;
+        width: 59%;
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .mainright {
+        height: 100%;
+        width: 35%;
+        background-color: #000000;
+        background-size: cover;
+        float: right;
+      }
+      .mainlefttop {
+        height: 15%;
+        width: 100%;
+        background-color: #000000;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .stories {
+        height: 90%;
+        width: 90%;
+        margin: 5px;
+        background-size: cover;
+        scrollbar-width: none;
+        display: flex;
+        overflow: scroll;
+        gap: 15px;
+      }
+      .storybox {
+        height: 95%;
+        width: 100%;
+        margin: 3.5px 0px;
+        cursor: pointer;
+        background-color: #000000;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .story {
+        min-height: 100px;
+        min-width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background: #f7ff00; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to bottom,
+          #db36a4,
+          #f7ff00
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to bottom,
+          #db36a4,
+          #f7ff00
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        background-size: cover;
+        border-radius: 50%;
+      }
+      .storybox p {
+        margin: 5px;
+        font-size: 14px;
+        color: #e3e3e3;
+      }
+      .dp {
+        width: 87.5%;
+        border-radius: 50%;
+        border: 3.5px solid #000000;
+      }
+      .mainleftbot {
+        width: 60%;
+        min-height: 85%;
+        background-color: grey;
+        background-size: cover;
+      }
+
+      .post {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #000000;
+        background-size: cover;
+      }
+      .profile {
+        height: 50px;
+        width: 100%;
+        display: flex;
+        padding: 0px 0px;
+        color: aliceblue;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #000000;
+        background-size: cover;
+      }
+      .profileLeft {
+        height: 100%;
+        min-width: 55%;
+        cursor: pointer;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        padding: 10px 5px;
+      }
+      .profileLeft i {
+        font-size: 5px;
+        padding: 0px 5px 0px 0px;
+        opacity: 0.5;
+      }
+      .verifiedd {
+        height: 15px;
+        padding: 5px;
+      }
+      .profileLeft p {
+        opacity: 0.5;
+      }
+      .dps {
+        height: 65%;
+        width: 15%;
+        padding: 0px 10px 0px 5px;
+        background-size: cover;
+      }
+      .dps1 {
+        height: 100%;
+        border-radius: 50%;
+      }
+      .profileRight {
+        padding: 10px;
+        cursor: pointer;
+      }
+      .postuu {
+        width: 100%;
+      }
+      .postlu {
+        width: 100%;
+        border-radius: 5px;
+      }
+      .comments {
+        height: 170px;
+        width: 100%;
+
+        background-color: #000000;
+        background-size: cover;
+      }
+      .comment1 {
+        height: 50px;
+        display: flex;
+        background-color: #000000;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .comment1 i {
+        cursor: pointer;
+        font-size: 25px;
+        padding: 5px;
+        color: #f5f5f5;
+      }
+      .comment2 {
+        color: #f5f5f5;
+        background-color: #000000;
+        background-size: cover;
+        padding: 0px 10px;
+      }
+      .comment2 p {
+        margin: 2px;
+        cursor: pointer;
+      }
+      .comment2 h5 {
+        margin: 0px;
+        cursor: pointer;
+      }
+      .graytxt {
+        color: #9b9b9b;
+      }
+      .comment2 hr{
+        opacity: 0.5;
+        
+      }
+      .rdp {
+        height: 60px;
+        border-radius: 50%;
+      }
+      .right1{
+        height: 40px;
+        width: 350px;
+        margin: 15px;
+        background-color: #000000;
+        background-size: cover;
+        display: flex;
+        justify-content: space-between;
+        
+      }
+      .right11{
+        height: 100%;
+        width: 60%;
+        display: flex;
+        background-color: #000000;
+        background-size: cover;
+      }
+      .suggestpic{
+        height: 100%;
+        margin: 0px 10px;
+        background-size: cover;
+        cursor: pointer;
+      }
+      .sugpic{
+        height: 100%;
+        border-radius: 50%;
+      }
+      .sugprof{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        font-size: 14px;
+      }
+      .sugprof p{
+        color: #9b9b9b;
+        margin: 0px 0px;
+      }
+      .sugprof b{
+        color: white;
+        cursor: pointer;
+      }
+      .right12{
+        height: 100%;
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 13px;
+        color: #6e85d4;
+        background-color: #000000;
+        background-size: cover;
+        cursor: pointer;
+      }
+      .right2{
+        height: 40px;
+        width: 338px;
+        margin: 15px;
+        background-color: #000000;
+        background-size: cover;
+        display: flex;
+        justify-content: space-between;
+      }
+      .right21{
+        color: #9b9b9b;
+      }
+      .right22{
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      .right3{
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: start;
+        font-size: 12px;
+      }
+      .text{
+        color: #9b9b9b;
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="left">
+      <table cellpadding="15px 0px 15px 0px" cellspacing="-5px -5px">
+        <div class="insta">
+          <img src="InstaName.png" alt="Insta name logo" class="Instanamee" />
+        </div>
+        <tr>
+          <td>
+            <i class="fa-solid fa-house"></i>
+          </td>
+          <td>Home</td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </td>
+          <td>Search</td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fa-regular fa-compass"></i>
+          </td>
+          <td>Explore</td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fa-solid fa-clapperboard"></i>
+          </td>
+          <td>Reels</td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fa-regular fa-comment-dots"></i>
+          </td>
+          <td>Messages</td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fa-regular fa-heart"></i>
+          </td>
+          <td>Notifications</td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fa-regular fa-square-plus"></i>
+          </td>
+          <td>Create</td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fa-regular fa-user"></i>
+          </td>
+          <td>Profile</td>
+        </tr>
+        <tr>
+          <td>
+            <br /><br /><br />
+            <i class="fa-solid fa-bars"></i>
+          </td>
+          <td>
+            <br /><br /><br />
+            More
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fa-solid fa-boxes-stacked"></i>
+          </td>
+          <td>Also from Meta</td>
+        </tr>
+      </table>
+    </div>
+    <div class="main">
+      <div class="mainleft">
+        <div class="mainlefttop">
+          <div class="stories">
+            <div class="storybox">
+              <div class="story">
+                <img src="dp1.png" class="dp" />
+              </div>
+              <p>kajalaggar...</p>
+            </div>
+            <div class="storybox">
+              <div class="story">
+                <img src="dp2.png" class="dp" />
+              </div>
+              <p>urstrulyma...</p>
+            </div>
+            <div class="storybox">
+              <div class="story">
+                <img src="dp3.jpg" class="dp" />
+              </div>
+              <p>mr.yuvateja</p>
+            </div>
+            <div class="storybox">
+              <div class="story">
+                <img src="dp3.png" class="dp" />
+              </div>
+              <p>robertdow...</p>
+            </div>
+            <div class="storybox">
+              <div class="story">
+                <img src="dp4.png" class="dp" />
+              </div>
+              <p>hrithikro...</p>
+            </div>
+            <div class="storybox">
+              <div class="story">
+                <img src="dp5.png" class="dp" />
+              </div>
+              <p>jhanvi_ka...</p>
+            </div>
+            <div class="storybox">
+              <div class="story">
+                <img src="dp6.png" class="dp" />
+              </div>
+              <p>shriyasha...</p>
+            </div>
+
+            <div class="storybox">
+              <div class="story">
+                <img src="dp8.png" class="dp" />
+              </div>
+              <p>krithi.she...</p>
+            </div>
+            <div class="storybox">
+              <div class="story">
+                <img src="dp9.png" class="dp" />
+              </div>
+              <p>nameisnani</p>
+            </div>
+            <div class="storybox">
+              <div class="story">
+                <img src="dp10.png" class="dp" />
+              </div>
+              <p>rohitsharma</p>
+            </div>
+          </div>
+        </div>
+        <div class="mainleftbot">
+          <div class="post">
+            <div class="profile">
+              <div class="profileLeft">
+                <div class="dps">
+                  <img src="dp3.jpg" class="dps1" />
+                </div>
+                <h4>mr.yuvateja</h4>
+                <img src="verified.png" class="verifiedd" />
+                <i class="fa-solid fa-circle"> </i>
+                <p>1 d</p>
+              </div>
+              <div class="profileRight">
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
+            </div>
+            <div class="postuu">
+              <img src="post4.jpg" class="postlu" />
+            </div>
+            <div class="comments">
+              <div class="comment1">
+                <div class="cmt1">
+                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-regular fa-comment"></i>
+                  <i class="fa-solid fa-share"></i>
+                </div>
+                <div class="cmt2">
+                  <i class="fa-regular fa-bookmark"></i>
+                </div>
+              </div>
+              <div class="comment2">
+                <h5>6,193 likes</h5>
+                <p><b>mr.yuvateja </b>❤️❤️</p>
+                <p class="graytxt">...more</p>
+                <p class="graytxt">View all 92 comments</p>
+                <p class="graytxt">Add a comment...</p>
+                <hr>
+              </div>
+            </div>
+          </div>
+          <div class="post">
+            <div class="profile">
+              <div class="profileLeft">
+                <div class="dps">
+                  <img src="dps1.png" class="dps1" />
+                </div>
+                <h4>sarcastic_us</h4>
+                <img src="verified.png" class="verifiedd" />
+                <i class="fa-solid fa-circle"> </i>
+                <p>1 d</p>
+              </div>
+              <div class="profileRight">
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
+            </div>
+            <div class="postuu">
+              <img src="post1.jpeg" class="postlu" />
+            </div>
+            <div class="comments">
+              <div class="comment1">
+                <div class="cmt1">
+                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-regular fa-comment"></i>
+                  <i class="fa-solid fa-share"></i>
+                </div>
+                <div class="cmt2">
+                  <i class="fa-regular fa-bookmark"></i>
+                </div>
+              </div>
+              <div class="comment2">
+                <h5>66,193 likes</h5>
+                <p><b>sarcastic_us </b>Moms are truly angels</p>
+                <p class="graytxt">...more</p>
+                <p class="graytxt">View all 292 comments</p>
+                <p class="graytxt">Add a comment...</p>
+                <hr>
+              </div>
+            </div>
+          </div>
+          <div class="post">
+            <div class="profile">
+              <div class="profileLeft">
+                <div class="dps">
+                  <img src="dp3.jpg" class="dps1" />
+                </div>
+                <h4>mr.yuvateja</h4>
+                <img src="verified.png" class="verifiedd" />
+                <i class="fa-solid fa-circle"> </i>
+                <p>2 d</p>
+              </div>
+              <div class="profileRight">
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
+            </div>
+            <div class="postuu">
+              <img src="post3.jpg" class="postlu" />
+            </div>
+            <div class="comments">
+              <div class="comment1">
+                <div class="cmt1">
+                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-regular fa-comment"></i>
+                  <i class="fa-solid fa-share"></i>
+                </div>
+                <div class="cmt2">
+                  <i class="fa-regular fa-bookmark"></i>
+                </div>
+              </div>
+              <div class="comment2">
+                <h5>16,012 likes</h5>
+                <p><b>mr.yuvateja </b>🧡🧡</p>
+                <p class="graytxt">...more</p>
+                <p class="graytxt">View all 143 comments</p>
+                <p class="graytxt">Add a comment...</p>
+                <hr>
+              </div>
+            </div>
+          </div>
+          <div class="post">
+            <div class="profile">
+              <div class="profileLeft">
+                <div class="dps">
+                  <img src="dps2.png" class="dps1" />
+                </div>
+                <h4>pointless_existence._</h4>
+                <img src="verified.png" class="verifiedd" />
+                <i class="fa-solid fa-circle"> </i>
+                <p>1 d</p>
+              </div>
+              <div class="profileRight">
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
+            </div>
+            <div class="postuu">
+              <img src="post2.jpg" class="postlu" />
+            </div>
+            <div class="comments">
+              <div class="comment1">
+                <div class="cmt1">
+                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-regular fa-comment"></i>
+                  <i class="fa-solid fa-share"></i>
+                </div>
+                <div class="cmt2">
+                  <i class="fa-regular fa-bookmark"></i>
+                </div>
+              </div>
+              <div class="comment2">
+                <h5>96,193 likes</h5>
+                <p><b>pointless_existence._ </b>Belive him...</p>
+                <p class="graytxt">...more</p>
+                <p class="graytxt">View all 292 comments</p>
+                <p class="graytxt">Add a comment...</p>
+                <hr>
+              </div>
+            </div>
+          </div>
+          <div class="post">
+            <div class="profile">
+              <div class="profileLeft">
+                <div class="dps">
+                  <img src="dp3.jpg" class="dps1" />
+                </div>
+                <h4>mr.yuvateja</h4>
+                <img src="verified.png" class="verifiedd" />
+                <i class="fa-solid fa-circle"> </i>
+                <p>5 d</p>
+              </div>
+              <div class="profileRight">
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
+            </div>
+            <div class="postuu">
+              <img src="post5.jpg" class="postlu" />
+            </div>
+            <div class="comments">
+              <div class="comment1">
+                <div class="cmt1">
+                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-regular fa-comment"></i>
+                  <i class="fa-solid fa-share"></i>
+                </div>
+                <div class="cmt2">
+                  <i class="fa-regular fa-bookmark"></i>
+                </div>
+              </div>
+              <div class="comment2">
+                <h5>22,143 likes</h5>
+                <p><b>mr.yuvateja </b>❤️🤍🖤</p>
+                <p class="graytxt">...more</p>
+                <p class="graytxt">View all 69 comments</p>
+                <p class="graytxt">Add a comment...</p>
+                <hr>
+              </div>
+            </div>
+          </div>
+          <div class="post">
+            <div class="profile">
+              <div class="profileLeft">
+                <div class="dps">
+                  <img src="dp3.jpg" class="dps1" />
+                </div>
+                <h4>mr.yuvateja</h4>
+                <img src="verified.png" class="verifiedd" />
+                <i class="fa-solid fa-circle"> </i>
+                <p>3 d</p>
+              </div>
+              <div class="profileRight">
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
+            </div>
+            <div class="postuu">
+              <img src="post6.jpg" class="postlu" />
+            </div>
+            <div class="comments">
+              <div class="comment1">
+                <div class="cmt1">
+                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-regular fa-comment"></i>
+                  <i class="fa-solid fa-share"></i>
+                </div>
+                <div class="cmt2">
+                  <i class="fa-regular fa-bookmark"></i>
+                </div>
+              </div>
+              <div class="comment2">
+                <h5>11,523 likes</h5>
+                <p><b>mr.yuvateja </b>🩶🩶</p>
+                <p class="graytxt">...more</p>
+                <p class="graytxt">View all 96 comments</p>
+                <p class="graytxt">Add a comment...</p>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mainright">
+        <br><br>
+        <div class="right1">
+          <div class="right11">
+            <div class="suggestpic">
+              <img src="dp3.jpg" class="sugpic">
+            </div>
+            <div class="sugprof">
+              <p><b>mr.yuvateja</b></p>
+              <p>Yuvateja🫧</p>
+            </div>
+          </div>
+          <div class="right12">
+            <p>Switch</p>
+          </div>
+        </div>
+        <div class="right2">
+          <div class="right21">
+            <p>Suggested for you</p>
+          </div>
+          <div class="right22">
+            <p><b>See All</b></p>
+          </div>
+        </div>
+        <div class="right1">
+          <div class="right11">
+            <div class="suggestpic">
+              <img src="sugdp1.png" class="sugpic">
+            </div>
+            <div class="sugprof">
+              <p><b>anupamaparameswaran96</b></p>
+              <p>Followed by krithishetty.....</p>
+            </div>
+          </div>
+          <div class="right12">
+            <p>Folow</p>
+          </div>
+        </div>
+        <div class="right1">
+          <div class="right11">
+            <div class="suggestpic">
+              <img src="sugdp2.png" class="sugpic">
+            </div>
+            <div class="sugprof">
+              <p><b>nehasharmaofficial</b></p>
+              <p>Suggested for you</p>
+            </div>
+          </div>
+          <div class="right12">
+            <p>Follow</p>
+          </div>
+        </div>
+        <div class="right1">
+          <div class="right11">
+            <div class="suggestpic">
+              <img src="sugdp3.png" class="sugpic">
+            </div>
+            <div class="sugprof">
+              <p><b>mrbean</b></p>
+              <p>Followed by mr.yuvateja</p>
+            </div>
+          </div>
+          <div class="right12">
+            <p>Follow</p>
+          </div>
+        </div>
+        <div class="right1">
+          <div class="right11">
+            <div class="suggestpic">
+              <img src="sugdp4.png" class="sugpic">
+            </div>
+            <div class="sugprof">
+              <p><b>mallika_singh_official_</b></p>
+              <p>Followed by mr.yuvateja</p>
+            </div>
+          </div>
+          <div class="right12">
+            <p>Follow</p>
+          </div>
+        </div>
+        <div class="right1">
+          <div class="right11">
+            <div class="suggestpic">
+              <img src="sugdp5.png" class="sugpic">
+            </div>
+            <div class="sugprof">
+              <p><b>sunrisershyd</b></p>
+              <p>Suggested for you</p>
+            </div>
+          </div>
+          <div class="right12">
+            <p>Follow</p>
+          </div>
+        </div>
+        <div class="right1">
+          <div class="right11">
+            <div class="suggestpic">
+              <img src="sugdp6.png" class="sugpic">
+            </div>
+            <div class="sugprof">
+              <p><b>kashmiraofficial</b></p>
+              <p>Followed by shriyas...</p>
+            </div>
+          </div>
+          <div class="right12">
+            <p>Follow</p>
+          </div>
+        </div>
+        <br>
+        <div class="right3">
+          <p class="text">About . Help . Press . API . Jobs . Privacy .  Terms . Locations . Language . Meta Verified</p>
+          <p class="text">@ 2025 INSTAGRAM FROM META</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
